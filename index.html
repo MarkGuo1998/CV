@@ -6,9 +6,11 @@ h1 {text-align: center; line-height: 0.7; font-family: "Georgia"; font-weight:no
 p {text-align: center; line-height: 0.7; font-family: "Georgia";}
 p1 {line-height: 1; font-family: "Georgia"; font-size: 20px}
 .box{font-family: Georgia; line-height: 1.5; }
-.left{float: left; width: 79%;}
-.right{float: right; width: 20%;}
-.text{display: block; width: 95%}
+.left{float: left; width: 79%; display: inline-block}
+.right{float: right; width: 20%; display: inline-block}
+.cleft{float: left; width: 40%; display: inline-block}
+.cright{float: right; width: 60%; display: inline-block}
+.text{display: inline-block; width: 90%; line-height: 1.5}
 hr.style-two {
 border: 0;
 height: 1px;
@@ -27,6 +29,10 @@ li {
 
 li::before {
   content: "➢ ";
+}
+td
+{
+  text-align: left;
 }
 </style>
 
@@ -61,41 +67,114 @@ li::before {
     </div>
     <div class="box">
         <span class="right">Jul 2017 - Apr 2018</span>
-        <span class="left"><b>Data Analysis of Chronic Kidney Disease | Peking University</b> | Research Assistant</span>
-        <br/>
+        <span class="left"><b>Data Analysis of Chronic Kidney Disease | Peking University</b> | Research Assistant | </span>
         <span class="text">Advisor: <a href="http://gordon.mgh.harvard.edu/gc/people/faculty/quanzheng-li/" target="_blank"><b>Quanzheng Li</b></a>, associate professor at Harvard Medical School, Harvard University; </span>
-        <span class="text" style="text-indent:65px">
-        <b><a href="https://www.pkufh.com/Html/Doctors/Main/Detail_175.html" target="_blank">Luxia Zhang</a></b>, associate chief physician at Peking University First Hospital.
+        <span class="text" style="text-indent:65px"> <b><a href="https://www.pkufh.com/Html/Doctors/Main/Detail_175.html" target="_blank">Luxia Zhang</a></b>, associate chief physician at Peking University First Hospital.
         </span>
         <ul>
-        <li class="text"> Extracted important features in Hospital Quality Monitoring System (HQMS) database using Decision Tree algorithm;</li>
-        <li class="text"> Implemented a "corresponding analysis" algorithm to reveal some unique patterns between patients' health condition and their type of Chronic Kidney Diseases (CKD), and tried to explain the reason why these patterns arose.</li>
+            <li class="text"> Extracted important features in Hospital Quality Monitoring System (HQMS) database using Decision Tree algorithm;</li>
+            <li class="text"> Implemented a "corresponding analysis" algorithm to reveal some unique patterns between patients' health condition and their type of Chronic Kidney Diseases (CKD), and tried to explain the reason why these patterns arose.</li>
         </ul>
     </div>
     <br/>
     
     <div class="box">
         <span class="right">Sep 2017 - Present</span>
-        <span class="left"><b> Multi-cell Detection and Classification | Peking University</b> | Research Assistant</span>
+        <span class="left"><b> Multi-cell Detection and Classification | Peking University</b> | Research Assistant | </span>
         <br/>
         <span class="text">Advisor: <b><a href="http://gordon.mgh.harvard.edu/gc/people/faculty/quanzheng-li/" target="_blank">Quanzheng Li</a></b>, associate professor at Harvard Medical School, Harvard University; </span>
         <ul>
-        <li class="text"> Built a model with both detection and classification modules to extract cell patches and to classify patches with multiple, normal and abnormal red blood cells (RBCs), from sickle class disease (SCD) patient blood samples;</li>
-        <li class="text"> Our proposed model has achieved high detection and classification accuracy, 93.2% for single-cell patches (exceeding state-of-the-art model with 89.3% acc.) and 72.2% for multi-cell patches;</li>
-        <li class="text"> Experiments have shown that the model benefited from dataset containing extra multi–instance samples and the details are included in our paper submitted to <b><i>BMC</i></b>.</li>
+            <li class="text"> Built a model with both detection and classification modules to extract cell patches and to classify patches with multiple, normal and abnormal red blood cells (RBCs), from sickle class disease (SCD) patient blood samples;</li>
+            <li class="text"> Our proposed model has achieved high detection and classification accuracy, 93.2% for single-cell patches (exceeding state-of-the-art model with 89.3% acc.) and 72.2% for multi-cell patches;</li>
+            <li class="text"> Experiments have shown that the model benefited from dataset containing extra multi–instance samples and the details are included in our paper submitted to <b>BMC</b>.</li>
         </ul>
     </div>
     <br/>
     <div class="box">
         <span class="right">Sep 2018 - Present</span>
-        <span class="left"><b> Image and Graph Analysis for Alzheimer’s Disease | Mass General Hospital </b> | Research Assistant</span>
+        <span class="left"><b> Image and Graph Analysis for Alzheimer’s Disease | Mass General Hospital </b> | Research Assistant | </span>
         <br/>
-        <span class="text">Advisor: <b><a href="http://gordon.mgh.harvard.edu/gc/people/faculty/quanzheng-li/" target="_blank">Quanzheng Li</a></b>, associate professor at Harvard Medical School, Harvard University; </span>
+        <span class="text">Advisor: <b><a href="http://gordon.mgh.harvard.edu/gc/people/faculty/quanzheng-li/" target="_blank">Quanzheng Li</a></b>, associate professor at Harvard Medical School, Harvard University. </span>
         <ul>
-        <li class="text"> Explored multi-layer graph learning methods for our AD brain dataset with multiple views including fMRI and DTI;</li>
-        <li class="text"> Used pretrained Inception V3 CNN on PET images to classify NC group and MCI group with very high accuracy (~97%);</li>
-        <li class="text"> Currently designing experiments to stress the importance of pretraining on both graph-based tasks and image-based tasks.</li>
+            <li class="text"> Explored multi-layer graph learning methods for our AD brain dataset with multiple views including fMRI and DTI;</li>
+            <li class="text"> Used pretrained Inception V3 CNN on PET images to classify NC group and MCI group with very high accuracy (~97%);</li>
+            <li class="text"> Currently designing experiments to stress the importance of pretraining on both graph-based tasks and image-based tasks.</li>
         </ul>
+    </div>
+    <br/>
+    <div class="box">
+        <span class="right">Jul 2018 - Aug 2018</span>
+        <span class="left"><b> Introduction to Computer System | Peking University </b> | Teaching Assistant |  </span>
+        <br/>
+        <span class="text">Teacher: <b><a href="http://eecs.pku.edu.cn/EN/People/Faculty/Detail/?ID=6016" target="_blank">Jiangfang Yi</a></b>, associate professor at School of EECS, Peking University. </span>
+        <ul>
+            <li class="text"> Taught a small class, helping with review, assignments, experiments, and exam preparation. </li>
+        </ul>
+    </div>
+    <br/>
+    <div class="box">
+        <span class="right">Jul 2018 - Aug 2018</span>
+        <span class="left"><b> Bottle Detection in Yanjing Beer Production Line | Shaohai Data (Beijing) </b> | Deep Learning Research Intern | </span>
+        <br/>
+        <span class="text">Advisor: <b>Mingyi Yuan</b>, Chief Technology Officer at Shaohai Data (Beijing). </span>
+        <ul>
+            <li class="text"> Modified and trained a detection model based on Faster–RCNN to detect empty bottles in beer production line;</li>
+            <li class="text"> Generated a large annotated image dataset for further usage with the bounding boxes of bottles in each image.</li>
+        </ul>
+    </div>
+    <br/>
+    <div class="box">
+        <p1>Publications</p1>
+        <hr class="style-two">
+        <ul>
+            <li class="text"> Multi–instance Detection and Classification of Red Blood Cells in Microscopic Images for Sickle Cell Disease Testing, Wei Qiu*, <b>Jiaming Guo</b>*, Xiang Li*, Mengjia Xu, Mo Zhang, Ning Guo, Quanzheng Li, submitted to <b>BMC</b>. (* represents joint first authors) </li>
+        </ul>
+    </div>
+    <br/>
+    <div class="box">
+        <p1>Skills</p1>
+        <hr class="style-two">
+        <ul>
+            <li class="text"> Proficient user: <b>Python</b> (tensorflow-based deep learning frameworks); </li>
+            <li class="text"> Skilled with: <b>C</b> (especially practiced in algorithm analysis and data structures); </li>
+            <li class="text"> Other interests with in-class practice: reinforcement learning; HTML+CSS/JS; SQL and database systems; Linux system; numerical analysis and optimization. </li>
+        </ul>
+    </div>
+    <br/>
+    <div class="box">
+        <p1>Leadership and Activities</p1>
+        <hr class="style-two">
+    </div>
+    <br/>
+    <div class="box">
+        <p1>Selected Courses</p1>
+        <hr class="style-two">
+        <table id="customers">
+            <tr>
+                <td width="40%">Introduction to Computation (A)</td>
+                <td width="14%">98/100</td>  
+                <td width="40%">Practice of Programming in C&C++</td>
+                <td width="14%">91/100</td>  
+            </tr>
+            <tr>
+                <td>Biometrics</td>
+                <td>91/100</td>  
+                <td>Data Structure and Algorithm (A)</td>
+                <td>85/100</td>  
+            </tr>
+            <tr>
+                <td>Introduction to Computer Systems</td>
+                <td>85.5/100</td>
+                <td>The Brain and Cognitive Science</td>
+                <td>87/100</td>  
+            </tr>
+            <tr>
+                <td>Introduction to Computer Systems</td>
+                <td>85.5/100</td>
+                <td>The Brain and Cognitive Science</td>
+                <td>87/100</td>  
+            </tr>
+        </table>
     </div>
 </body>
 </html>
