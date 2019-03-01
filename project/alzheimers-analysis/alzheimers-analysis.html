@@ -24,21 +24,24 @@
 </head>
 <body>
     <div>
-        <h1>Graph-based AD Analysis with PET images</h1>
+        <h1>Graph-based MCI/NC Analysis with PET images</h1>
     </div>
     <div class="box">
         <p1><b>Framework</b></p1>
         <hr class="style-two">
     </div>
     <div>
-        <span class="text">We used the Graph Convolutional Network (ChebNet) from <a href="http://papers.nips.cc/paper/6081-convolutional-neural-networks-on-graphs-with-fast-localized-spectral-filtering.pdf"><b>Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering</b></a>, NIPS 16', Michaël Defferrard et al.</span>
+        <span class="text" style="text-indent:2em">We used the Graph Convolutional Network (ChebNet) from <a href="http://papers.nips.cc/paper/6081-convolutional-neural-networks-on-graphs-with-fast-localized-spectral-filtering.pdf" target="_blank"><b>Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering</b></a>, NIPS 16', Michaël Defferrard et al. The original code can be found at this <a href="https://github.com/xbresson/spectral_graph_convnets" target="_blank"><b>link</b></a>.</span>
     </div>
     <br/>
     <div class="box">
-        <p1><b>Data Description</b></p1>
+        <p1><b>Data Description and Objective</b></p1>
         <hr class="style-two">
     </div>
-    <div><i>UNDER CONSTRUCTION</i></div>
+    <div class="box">
+        <span class="text" style="text-indent:2em"> We used <b>ADNI2-AV45 PET image</b> dataset with 419 subjects in total. The PET images are of 2mm-resolution and the shape is (91, 109, 91). There is only one image for a single subject with an associated label: <b>AD</b> (<i>Alzheimer's Disease</i>), <b>LMCI</b> (<i>Late Mild Cognitive Impairment</i>), <b>EMCI</b> (<i>Early MCI</i>) or <b>NC</b> (<i>Normal Control</i>).</span>
+        <span class="text" style="text-indent:2em">Since current diagnosis of MCI is done through various types of assessment tests, <b>we intend to find a intrinsic diagnosis standard for MCI patients from both the brain structural / functional connection network and brain region signals instead</b>. By the analysis of PET-based brain network we can find the changes of volume and signal in which regions have the most severe influence on the process of MCI, and thus provide a better insight for the prevention of MCI and also more accurate diagnosis for the severe disease. </span>
+    </div>
     <br/>
     <div class="box">
         <p1><b>Method and Contribution</b></p1>
@@ -47,12 +50,12 @@
     <div class="box">
         <span class="text"><i>Graph Construction</i> </span>
         <span class="text"></span>
-        <span class="text" style="text-indent:2em"> We did not use the <b>k-NN</b> graph as the original paper, which could make the network focus only on local features rather than global connections.</span> 
+        <span class="text" style="text-indent:2em"> We did not use the <b>k-NN</b> graph as the original paper, as that could make the network focus only on local features rather than global connections.</span> 
         <span class="text" style="text-indent:2em">Our method is listed as follows:</span> 
         <ul>
-            <li> Extract 120-D signals from AAL-2 atlas (120 brain regions) in 2mm-PET images; </li>
+            <li> Extract 120-D signals from AAL-2 atlas (120 brain regions) in PET images, and put region signals from all subjects together to construct a data matrix of shape (120, 419); </li>
             <li type=none> <img src="120region-data.jpg" width=90% alt="region extraction"></li>
-            <li> Compute correlation of the region-pairs, and use it as the adjacency matrix with a cut-off on edge weight at threshold 0.7; </li>
+            <li> Compute correlation of the 120 regions, and use the correlation matrix as the <b>adjacency matrix</b> with a cut-off on entries at threshold 0.7; </li>
             <li type=none> <img src="120-graph.jpg" width=70% alt="region extraction"></li>
         </ul>
     </div>
@@ -61,7 +64,7 @@
         <span class="text"></span>
         <span class="text" style="text-indent:2em"> Notations for network architectures: </span>
         <ul>
-            <li>FC<i>k</i> for a Fully Connected Layer with k hidden units;</li>
+            <li>FC<i>k</i> for a Fully Connected Layer with <i>k</i> hidden units;</li>
             <li>P<i>k</i> for a Graph Pooling Layer of size and stride <i>k</i>;</li>
             <li>GC<i>k</i> for a graph convolutional layer with <i>k</i> feature maps.</li>
         </ul>
@@ -73,11 +76,11 @@
     </div>
     <br/>
     <div class="box">
-        <span class="text"><i>Advantage of Our Graph-based Methods</i> </span>
+        <span class="text"><i>Advantages of Our Graph-based Methods</i> </span>
         <ul>
             <li>Graph-based methods are more <b>robust</b> than image-based ones, because they use the region-level average signals rather than the voxel-level signals (in image-based methods), which could lead to instability when images are noisy on voxl-level;</li>
             <li>Incorporating <b>any</b> graph (even a randomly-generated graph with the same number of edges as the correlation graph) as a part of input almost <b>guarantees</b> a slight boosting in performance (compared with XGBoost);</li>
-            <li>With our correlation graph as the input, the ChebNet yields the highest and stablest average classification accuracy (93+/-2%) among all region-based experiments.</li>
+            <li>With our correlation graph as the input, the ChebNet yields the highest average classification accuracy (93+/-2%) among all region-based experiments. The network performance with correlation graph is also much stabler than with random graphs.</li>
         </ul>
     </div>
     <br/>
