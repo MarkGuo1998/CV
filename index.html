@@ -1,41 +1,8 @@
 <!DOCTYPE html>
 
-<style type="text/css">
-body {padding: 2em; font-family:"Georgia";}
-h1 {text-align: center; line-height: 0.7; font-family: "Georgia"; font-weight:normal;}
-p {text-align: center; line-height: 0.7; font-family: "Georgia";}
-p1 {line-height: 1; font-family: "Georgia"}
-.box{font-family: Georgia; line-height: 1.5;}
-.left{float: left; width: 79%; display: inline-block}
-.right{float: right; width: 20%; display: inline-block}
-.cleft{float: left; width: 40%; display: inline-block}
-.cright{float: right; width: 60%; display: inline-block}
-.text{display: inline-block; width: 90%; line-height: 1.5}
-hr.style-two {
-border: 0;
-height: 1px;
-background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-}
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  padding-left: 2em; 
-  text-indent: -1em;
-}
-
-li::before {
-  content: "➢ ";
-}
-.ltd{text-align: left}
-.rtd{text-align: center}
-</style>
-
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
 	<title>Resume-Jiaming-Guo</title>
 	<meta charset="utf-8">
 </head>
@@ -43,8 +10,8 @@ li::before {
 <body>
     <div>
         <h1>Jiaming Guo</h1>
-        <p> markguo1998 <i>at</i> gmail <i>dot</i> com | (857) 320-8746 </p>
-        <p> 213 Mountain Ave, Malden, MA, 02148 </p>
+        <h4> markguo1998 <i>at</i> gmail <i>dot</i> com | (857) 320-8746 </h4>
+        <h4> 213 Mountain Ave, Malden, MA, 02148 </h4>
     </div>
     <div class="box">
         <p1>Education</p1>
@@ -77,8 +44,8 @@ li::before {
         <span class="text" style="text-indent:65px"> <b><a href="https://www.pkufh.com/Html/Doctors/Main/Detail_175.html" target="_blank">Luxia Zhang</a></b>, associate chief physician at Peking University First Hospital.
         </span>
         <ul>
-            <li class="text"> Extracted important features in Hospital Quality Monitoring System (HQMS) database using Decision Tree algorithm;</li>
-            <li class="text"> Implemented a "corresponding analysis" algorithm to reveal some unique patterns between patients' health condition and their type of Chronic Kidney Diseases (CKD), and tried to explain the reason why these patterns arose.</li>
+            <li> Extracted important features in Hospital Quality Monitoring System (HQMS) database using Decision Tree algorithm;</li>
+            <li> Implemented a "corresponding analysis" algorithm to reveal some unique patterns between patients' health condition and their type of Chronic Kidney Diseases (CKD), and tried to explain the reason why these patterns arose.</li>
         </ul>
     </div>
     <br/>
@@ -89,9 +56,9 @@ li::before {
         <br/>
         <span class="text">Advisor: <b><a href="http://gordon.mgh.harvard.edu/gc/people/faculty/quanzheng-li/" target="_blank">Quanzheng Li</a></b>, associate professor at Harvard Medical School, Harvard University; </span>
         <ul>
-            <li class="text"> Built a model with both detection and classification modules to extract cell patches and to classify patches with multiple, normal and abnormal red blood cells (RBCs), from sickle class disease (SCD) patient blood samples;</li>
-            <li class="text"> Our proposed model has achieved high detection and classification accuracy, 93.2% for single-cell patches (exceeding state-of-the-art model with 89.3% acc.) and 72.2% for multi-cell patches;</li>
-            <li class="text"> Experiments have shown that the model benefited from dataset containing extra multi–instance samples and the details are included in our paper submitted to <b>BMC</b>.</li>
+            <li> Built a model with both detection and classification modules to extract cell patches and to classify patches with multiple, normal and abnormal red blood cells (RBCs), from sickle class disease (SCD) patient blood samples;</li>
+            <li> Our proposed model has achieved high detection and classification accuracy, 93.2% for single-cell patches (exceeding state-of-the-art model with 89.3% acc.) and 72.2% for multi-cell patches;</li>
+            <li> Experiments have shown that the model benefited from dataset containing extra multi–instance samples and the details are included in our paper submitted to <b>BMC</b>.</li>
         </ul>
     </div>
     <br/>
@@ -101,9 +68,9 @@ li::before {
         <br/>
         <span class="text">Advisor: <b><a href="http://gordon.mgh.harvard.edu/gc/people/faculty/quanzheng-li/" target="_blank">Quanzheng Li</a></b>, associate professor at Harvard Medical School, Harvard University. </span>
         <ul>
-            <li class="text"> Explored multi-layer graph learning methods for our AD brain dataset with multiple views including fMRI and DTI;</li>
-            <li class="text"> Used pretrained Inception V3 CNN on PET images to classify NC group and MCI group with very high accuracy (~97%);</li>
-            <li class="text"> Currently designing experiments to stress the importance of pretraining on both graph-based tasks and image-based tasks.</li>
+            <li> Explored multi-layer graph learning methods for our AD brain dataset with multiple views including fMRI and DTI;</li>
+            <li> Used pretrained Inception V3 CNN on PET images to classify NC group and MCI group with very high accuracy (~97%);</li>
+            <li> Currently designing experiments to stress the importance of pretraining on both graph-based tasks and image-based tasks.</li>
         </ul>
     </div>
     <br/>
@@ -113,7 +80,7 @@ li::before {
         <br/>
         <span class="text">Teacher: <b><a href="http://eecs.pku.edu.cn/EN/People/Faculty/Detail/?ID=6016" target="_blank">Jiangfang Yi</a></b>, associate professor at School of EECS, Peking University. </span>
         <ul>
-            <li class="text"> Taught a small class, helping with review, assignments, experiments, and exam preparation. </li>
+            <li> Taught a small class, helping with review, assignments, experiments, and exam preparation. </li>
         </ul>
     </div>
     <br/>
@@ -123,8 +90,8 @@ li::before {
         <br/>
         <span class="text">Advisor: <b>Mingyi Yuan</b>, Chief Technology Officer at Shaohai Data (Beijing). </span>
         <ul>
-            <li class="text"> Modified and trained a detection model based on Faster–RCNN to detect empty bottles in beer production line;</li>
-            <li class="text"> Generated a large annotated image dataset for further usage with the bounding boxes of bottles in each image.</li>
+            <li> Modified and trained a detection model based on Faster–RCNN to detect empty bottles in beer production line;</li>
+            <li> Generated a large annotated image dataset for further usage with the bounding boxes of bottles in each image.</li>
         </ul>
     </div>
     <br/>
@@ -132,7 +99,7 @@ li::before {
         <p1>Publications</p1>
         <hr class="style-two">
         <ul>
-            <li class="text"> Multi–instance Detection and Classification of Red Blood Cells in Microscopic Images for Sickle Cell Disease Testing, Wei Qiu*, <b>Jiaming Guo</b>*, Xiang Li*, Mengjia Xu, Mo Zhang, Ning Guo, Quanzheng Li, submitted to <b>BMC</b>. (* represents joint first authors) </li>
+            <li> Multi–instance Detection and Classification of Red Blood Cells in Microscopic Images for Sickle Cell Disease Testing, Wei Qiu*, <b>Jiaming Guo</b>*, Xiang Li*, Mengjia Xu, Mo Zhang, Ning Guo, Quanzheng Li, submitted to <b>BMC</b>. (* represents joint first authors) </li>
         </ul>
     </div>
     <br/>
@@ -140,9 +107,9 @@ li::before {
         <p1>Skills</p1>
         <hr class="style-two">
         <ul>
-            <li class="text"> Proficient user: <b>Python</b> (tensorflow-based deep learning frameworks); </li>
-            <li class="text"> Skilled with: <b>C</b> (especially practiced in algorithm analysis and data structures); </li>
-            <li class="text"> Other interests with in-class practice: reinforcement learning; HTML+CSS/JS; SQL and database systems; Linux system; numerical analysis and optimization. </li>
+            <li> Proficient user: <b>Python</b> (tensorflow-based deep learning frameworks); </li>
+            <li> Skilled with: <b>C</b> (especially practiced in algorithm analysis and data structures); </li>
+            <li> Other interests with in-class practice: reinforcement learning; HTML+CSS/JS; SQL and database systems; Linux system; numerical analysis and optimization. </li>
         </ul>
     </div>
     <br/>

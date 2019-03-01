@@ -2,12 +2,89 @@
 
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="../../CSS/main.css">
 	<title>Graph-based Alzheimer's Disease Analysis with PET images</title>
 	<meta charset="utf-8">
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      <!--$表示行内元素，$$表示块状元素 -->
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<!--加载MathJax的最新文件， async表示异步加载进来 -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
 </head>
 <body>
-    This page is under construction.
-    <br>
-    Slides about our project (in Chinese) can be found <a href="ckd-analysis-slides.pdf">here</a>.
+    <div>
+        <h1>Graph-based AD Analysis with PET images</h1>
+    </div>
+    <div class="box">
+        <p1><b>Framework</b></p1>
+        <hr class="style-two">
+    </div>
+    <div>
+        <span class="text">We used the Graph Convolutional Network (ChebNet) from <a href="http://papers.nips.cc/paper/6081-convolutional-neural-networks-on-graphs-with-fast-localized-spectral-filtering.pdf"><b>Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering</b></a>, NIPS 16', Michaël Defferrard et al.</span>
+    </div>
+    <br/>
+    <div class="box">
+        <p1><b>Data</b></p1>
+        <hr class="style-two">
+    </div>
+    <div>419 people</div>
+    <br/>
+    <div class="box">
+        <p1><b>Method and Contribution</b></p1>
+        <hr class="style-two">
+    </div>
+    <div class="box">
+        <span class="text"><i>Graph Construction</i> </span>
+        <span class="text"></span>
+        <span class="text" style="text-indent:2em"> We did not use the <b>k-NN</b> graph as the original paper, which could make the network focus only on local features rather than global connections.</span> 
+        <span class="text" style="text-indent:2em">Our method is listed as follows:</span> 
+        <ul>
+            <li> Extract 120-D signals from AAL-2 atlas (120 brain regions) in 2mm-PET images; </li>
+            <li type=none> <img src="120region-data.jpg" width=90% alt="region extraction"></li>
+            <li> Compute correlation of the region-pairs, and use it as the adjacency matrix with a cut-off on edge weight at threshold 0.7; </li>
+            <li type=none> <img src="120-graph.jpg" width=70% alt="region extraction"></li>
+        </ul>
+    </div>
+    <div class="box">
+        <span class="text"><i>Network Structure</i> </span>
+        <span class="text"></span>
+        <span class="text" style="text-indent:2em"> Notations for network architectures: </span>
+        <ul>
+            <li>FC<i>k</i> for a Fully Connected Layer with k hidden units;</li>
+            <li>P<i>k</i> for a Graph Pooling Layer of size and stride <i>k</i>;</li>
+            <li>GC<i>k</i> for a graph convolutional layer with <i>k</i> feature maps.</li>
+        </ul>
+        <span class="text" style="text-indent:2em"> All FC<i>k</i> and GC<i>k</i> layers are followed by a <b>Leaky</b>ReLU activation with $\alpha=0.01$.</span>
+        <span class="text" style="text-indent:2em"> The final layer is a softmax regression and the loss energy E is the cross-entropy with an <i>l2</i> regularization on the weights of all FC<i>k</i> layers. Mini-batches are of size S = 20.</span>
+        <span class="text" style="text-indent:2em"> Our final network structure is denoted by GC<i>32</i>-P<i>4</i>-GC<i>64</i>-P<i>4</i>-FC<i>512</i>.</span> 
+    </div>
+    <br/>
+    <div class="box">
+        <span class="text"><i>Advantage of Graph-based Method</i> </span>
+        <span class="text"></span>
+        <span class="text" style="text-indent:2em"> Notations for network architectures: </span>
+        <ul>
+            <li>FC<i>k</i> for a Fully Connected Layer with k hidden units;</li>
+            <li>P<i>k</i> for a Graph Pooling Layer of size and stride <i>k</i>;</li>
+            <li>GC<i>k</i> for a graph convolutional layer with <i>k</i> feature maps.</li>
+        </ul>
+        <span class="text" style="text-indent:2em"> All FC<i>k</i> and GC<i>k</i> layers are followed by a <b>Leaky</b>ReLU activation with $\alpha=0.01$.</span>
+        <span class="text" style="text-indent:2em"> The final layer is a softmax regression and the loss energy E is the cross-entropy with an <i>l2</i> regularization on the weights of all FC<i>k</i> layers. Mini-batches are of size S = 20.</span>
+        <span class="text" style="text-indent:2em"> Our final network structure is denoted by GC<i>32</i>-P<i>4</i>-GC<i>64</i>-P<i>4</i>-FC<i>512</i>.</span> 
+    </div>
+        
+   
+        
 </body>
 </html>

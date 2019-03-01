@@ -1,0 +1,24 @@
+body {padding: 2em; font-family:"Georgia";}
+h1 {text-align: center; line-height: 1.2; font-family: "Georgia"; font-weight:normal;}
+h4 {text-align: center; font-family: "Georgia";font-weight:normal;line-height: 0.7}
+p1 {line-height: 1; font-family: "Georgia"}
+.box{font-family: Georgia; line-height: 1.5;}
+.left{float: left; width: 70%; display: inline-block}
+.right{float: right; width: 20%; display: inline-block}
+.cleft{float: left; width: 40%; display: inline-block}
+.cright{float: right; width: 60%; display: inline-block}
+.text{display: inline-block; width: 90%; line-height: 1.5}
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+ul{
+    list-style-type: square;
+    width: 90%;
+}
+li {
+    height: 1.5
+}
+.ltd{text-align: left}
+.rtd{text-align: center}
