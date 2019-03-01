@@ -54,9 +54,9 @@
         <span class="text" style="text-indent:2em">Our method is listed as follows:</span> 
         <ul>
             <li> Extract 120-D signals from AAL-2 atlas (120 brain regions) in PET images, and put region signals from all subjects together to construct a data matrix of shape (120, 419); </li>
-            <li type=none> <img src="120region-data.jpg" width=90% alt="region extraction"></li>
+            <li type=none> <img src="120region-data.jpg" width=70% alt="region extraction"></li>
             <li> Compute correlation of the 120 regions, and use the correlation matrix as the <b>adjacency matrix</b> with a cut-off on entries at threshold 0.7; </li>
-            <li type=none> <img src="120-graph.jpg" width=70% alt="region extraction"></li>
+            <li type=none> <img src="120-graph.jpg" width=50% alt="region extraction"></li>
         </ul>
     </div>
     <div class="box">
@@ -83,7 +83,6 @@
             <li>With our correlation graph as the input, the ChebNet yields the highest average classification accuracy (93+/-2%) among all region-based experiments. The network performance with correlation graph is also much stabler than with random graphs.</li>
         </ul>
     </div>
-    <br/>
     <div class="box">
         <p1><b>Experiments and Results</b></p1>
         <hr class="style-two">
@@ -102,7 +101,7 @@
         <span class="text"><i>Results</i> </span>
         <ul>
             <li>93% accuracy (on average).</li>
-            <li type=none> <img src="120-result.png" width=70% alt="region extraction"></li>
+            <li type=none> <img src="120-result.png" width=50% alt="region extraction"></li>
         </ul>
     </div>
     <div class="box">
@@ -115,10 +114,25 @@
             <li type=none style="padding-left:2em; padding-right:2em"><b>IMAGE UNDER PROCESSING</b></li>
             <li>Random Graph (with the same number of edges as the corralation graph with threshold=0.7)</li>
             <li type=none style="padding-left:2em; padding-right:2em">The result is 89% on average, but of much <b>larger variance</b>. Besides, on 90% of the experiments the random-graph ChebNet yields lower accuracy than the correlation-graph ChebNet <b>on the same training/test dataset.</b> </li>
-            <li type=none><img src="120-random.png" width=49% alt="random-graph-result"><img src="120-2-random.png" width=49% alt="random-graph-result"></li>
+            <li type=none><img src="120-random.png" width=40% alt="random-graph-result"><img src="120-2-random.png" width=40% alt="random-graph-result"></li>
         </ul>
     </div>
-    <br/>
+    <div class="box">
+        <span class="text"><i>Region-based baselines</i> </span>
+        <ul>
+            <li>XGBoost Classifier: 88% on average (5-fold).</li>
+        </ul>
+    </div>
+    <div class="box">
+        <span class="text"><i>Image-based baselines</i> </span>
+        <ul>
+            <li>We extracted the 22nd, 45th and 67th slices from the original (91, 109, 91) 3D PET images and used them as the RGB channels respectively. We resized the slices to (299, 299) and use them as the input to some Convolutional Neural Network(CNN)s. </li>
+            <li type=none style="padding-left:2em; padding-right:2em">The training process is either fine-tuning (if the network is initialized from pretrained weights on ImageNet) or simple training (if the network is randomly initialized). </li>
+            <li> Results:</li>
+            <li type=none style="padding-left:2em; padding-right:2em">Non-pretrained Inception-V3 / ResNet-50: 83% accuracy on average.</li>
+            <li type=none style="padding-left:2em; padding-right:2em">Pretrained Inception-V3: 96+/-1%.</li>
+        </ul>
+    </div>
     <div class="box">
         <p1><b> Discussion </b></p1>
         <hr class="style-two">
