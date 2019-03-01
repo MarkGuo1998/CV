@@ -35,10 +35,10 @@
     </div>
     <br/>
     <div class="box">
-        <p1><b>Data</b></p1>
+        <p1><b>Data Description</b></p1>
         <hr class="style-two">
     </div>
-    <div>419 people</div>
+    <div><i>UNDER CONSTRUCTION</i></div>
     <br/>
     <div class="box">
         <p1><b>Method and Contribution</b></p1>
@@ -71,17 +71,12 @@
     </div>
     <br/>
     <div class="box">
-        <span class="text"><i>Advantage of Graph-based Method</i> </span>
-        <span class="text"></span>
-        <span class="text" style="text-indent:2em"> Notations for network architectures: </span>
+        <span class="text"><i>Advantage of Our Graph-based Methods</i> </span>
         <ul>
-            <li>FC<i>k</i> for a Fully Connected Layer with k hidden units;</li>
-            <li>P<i>k</i> for a Graph Pooling Layer of size and stride <i>k</i>;</li>
-            <li>GC<i>k</i> for a graph convolutional layer with <i>k</i> feature maps.</li>
+            <li>Graph-based methods are more <b>robust</b> than image-based ones, because they use the region-level average signals rather than the voxel-level signals (in image-based methods), which could lead to instability when images are noisy on voxl-level;</li>
+            <li>Incorporating <b>any</b> graph (even a randomly-generated graph with the same number of edges as the correlation graph) as a part of input almost <b>guarantees</b> a slight boosting in performance (compared with XGBoost);</li>
+            <li>With our correlation graph as the input, the ChebNet yields the highest and stablest average classification accuracy (93+/-2%) among all region-based experiments.</li>
         </ul>
-        <span class="text" style="text-indent:2em"> All FC<i>k</i> and GC<i>k</i> layers are followed by a <b>Leaky</b>ReLU activation with $\alpha=0.01$.</span>
-        <span class="text" style="text-indent:2em"> The final layer is a softmax regression and the loss energy E is the cross-entropy with an <i>l2</i> regularization on the weights of all FC<i>k</i> layers. Mini-batches are of size S = 20.</span>
-        <span class="text" style="text-indent:2em"> Our final network structure is denoted by GC<i>32</i>-P<i>4</i>-GC<i>64</i>-P<i>4</i>-FC<i>512</i>.</span> 
     </div>
         
    
