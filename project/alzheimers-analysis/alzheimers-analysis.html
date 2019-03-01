@@ -72,7 +72,7 @@
         $$G_L(x; \theta)=\sum_{k=0}^{K-1}\theta_kT_k(L)x.$$
         <span class="text" style="text-indent:2em"> All FC<i>k</i> and GC<i>k</i> layers are followed by a <b>Leaky</b>ReLU activation with $\alpha=0.01$.</span>
         <span class="text" style="text-indent:2em"> The final layer is a softmax regression and the loss energy E is the cross-entropy with an <i>l2</i> regularization on the weights of all FC<i>k</i> layers. Mini-batches are of size S = 20.</span>
-        <span class="text" style="text-indent:2em"> Our final network structure is denoted by GC<i>32</i>-P<i>4</i>-GC<i>64</i>-P<i>4</i>-FC<i>512</i>.</span> 
+        <span class="text" style="text-indent:2em"> Our final network structure is denoted by GC<i>32</i>-P<i>4</i>-GC<i>64</i>-P<i>4</i>-FC<i>512</i> with kernel number $K=25$ at each conv layer.</span> 
     </div>
     <br/>
     <div class="box">
@@ -88,8 +88,37 @@
         <p1><b>Experiments and Results</b></p1>
         <hr class="style-two">
     </div>
-    <div><i>UNDER CONSTRUCTION</i></div>
-   <br/>
+    <div class="box">
+        <span class="text"><i>Experimental Settings</i> </span>
+        <ul>
+            <li>We randomly split the original dataset for 70% training and 30% test.</li>
+            <li>To prevent "Dead ReLU" problem, we not only shrink the learning rate to $10^{-3}$, but also use a "LeakyReLU" activation function instead of the original "ReLU".</li>
+            <li>The initial learning rate decays by 50% every time the training loss decreases by 50%, and this shrinkage operation has a cooldown of 150 epochs.</li>
+            <li>We train the model for 1000 epochs in total.</li>
+            <li>The l2 regularization coefficient is $10^{-4}$. </li>
+        </ul>
+    </div>
+    <div class="box">
+        <span class="text"><i>Results</i> </span>
+        <ul>
+            <li>93% accuracy (on average).</li>
+            <li type=none> <img src="120-result.png" width=70% alt="region extraction"></li>
+        </ul>
+    </div>
+    <div class="box">
+        <span class="text"><i>Graph-based baselines</i> </span>
+        <ul>
+            <li>If we let $L=0$ (i.e. a graph with only self-loops), the Chebyshev convolutional layer degrades to a fully-connected layer ($G_0(x; \theta)=\sum_{k=0}^{K-1}\theta_kT_k(L)x=\theta_0x$). </li>
+            <li type=none style="padding-left:2em; padding-right:2em">Thus the classification result is guaranteed to be better than FCN since we add some extra information into the classification process whenever $L\ne0$.</li>
+            <li>To compare our construction of correlation graph with other graphs, we conducted extra experiments on the same training/test datasets.</li>
+            <li>Empty Graph (with only self-loops)</li>
+            <li type=none style="padding-left:2em; padding-right:2em"><b>IMAGE UNDER PROCESSING</b></li>
+            <li>Random Graph (with the same number of edges as the corralation graph with threshold=0.7)</li>
+            <li type=none style="padding-left:2em; padding-right:2em">The result is 89% on average, but of much <b>larger variance</b>. Besides, on 90% of the experiments the random-graph ChebNet yields lower accuracy than the correlation-graph ChebNet <b>on the same training/test dataset.</b> </li>
+            <li type=none><img src="120-random.png" width=49% alt="random-graph-result"><img src="120-2-random.png" width=49% alt="random-graph-result"></li>
+        </ul>
+    </div>
+    <br/>
     <div class="box">
         <p1><b> Discussion </b></p1>
         <hr class="style-two">
