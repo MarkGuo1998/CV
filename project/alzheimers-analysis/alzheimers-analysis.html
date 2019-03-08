@@ -80,7 +80,7 @@
         <ul>
             <li>Graph-based methods are more <b>robust</b> than image-based ones, because they use the region-level average signals rather than the voxel-level signals (in image-based methods), which could lead to instability when images are noisy on voxl-level;</li>
             <li>Incorporating <b>any</b> graph (even a randomly-generated graph with the same number of edges as the correlation graph) as a part of input almost <b>guarantees</b> a slight boosting in performance (compared with XGBoost);</li>
-            <li>With our correlation graph as the input, the ChebNet yields the highest average classification accuracy (93+/-2%) among all region-based experiments. The network performance with correlation graph is also much stabler than with random graphs.</li>
+            <li>With our correlation graph as the input, the ChebNet yields the highest average classification accuracy (~93%) among all region-based experiments. The network performance with correlation graph is also much stabler than with random graphs.</li>
         </ul>
     </div>
     <div class="box">
@@ -111,9 +111,13 @@
             <li type=none style="padding-left:2em; padding-right:2em">Thus the classification result is guaranteed to be better than FCN since we add some extra information into the classification process whenever $L\ne0$.</li>
             <li>To compare our construction of correlation graph with other graphs, we conducted extra experiments on the same training/test datasets.</li>
             <li>Empty Graph (with only self-loops)</li>
-            <li type=none style="padding-left:2em; padding-right:2em"><b>IMAGE UNDER PROCESSING</b></li>
+            <li type=none style="padding-left:2em; padding-right:2em">Below (<b>left</b>) is an example for empty graph (90% acc. with very unstable performance and very slow training speed.) </li>
+            <li type=none style="padding-left:2em; padding-right:2em">When switching to correlation graph (<b>right</b>), the accuracy is about 92%. </li>
+            <li type=none style="padding-left:2em; padding-right:2em">Overall, we not only have a (close, but still) better accuracy in correlation group, but also a much shorter convergence time (400 epochs versus ~1000 epochs). Considering that the connected correlation graph accelerates training process for another 2x (per epoch), the correlation method is significantly better than empty graph (i.e. fully connected layers). </li>
+            <li type=none><img src="3-5-random.png" width=40% alt="random-graph-result"><img src="3-5-corr.png" width=40% alt="random-graph-result"></li>
             <li>Random Graph (with the same number of edges as the corralation graph with threshold=0.7)</li>
             <li type=none style="padding-left:2em; padding-right:2em">The result is 89% on average, but of much <b>larger variance</b>. Besides, on 90% of the experiments the random-graph ChebNet yields lower accuracy than the correlation-graph ChebNet <b>on the same training/test dataset.</b> </li>
+            <li type=none style="padding-left:2em; padding-right:2em">Below are two examples for random graphs: </li>
             <li type=none><img src="120-random.png" width=40% alt="random-graph-result"><img src="120-2-random.png" width=40% alt="random-graph-result"></li>
         </ul>
     </div>
@@ -137,7 +141,19 @@
         <p1><b> Discussion </b></p1>
         <hr class="style-two">
     </div>
-    <div><i>UNDER CONSTRUCTION</i></div>
-        
+    <div class="box">
+        <span class="text"><i>More experiments in image-based methods</i> </span>
+        <ul>
+            <li>In the <i>power atlas</i> experiment, there are some regions whose signals all equal to <i>zero</i> in MCI group but are all non-zero in NC groups. We are not sure if they have a serious impact on image-based experiment. </li>
+            <li>We plan to add a noise on the images, which may damage the performance of image-based methods but have minor impact on graph-based experiments.</li>
+        </ul>
+    </div>
+    <div class="box">
+        <span class="text"><i>Feature importance of graph-based experiments</i> </span>
+        <ul>
+            <li> How will we analyze the feature importance of graph neural networks? The convolutional layer itself is another version of fully-connected layer with weight limited in a narrower vector space ($y=\text{LeakyRelu}(g_{\theta}(L)x)$). I'm not quite sure how to analyze it.</li>
+            <li>I sent an e-mail to the author of ChebNet and hope to discuss the issue with him.</li>
+        </ul>
+    </div>   
 </body>
 </html>
